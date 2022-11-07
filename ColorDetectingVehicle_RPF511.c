@@ -256,11 +256,9 @@ void proceed_by_s(int sp, int s){
 }
 
 void distance_decision(void){
-	if(getUSDistance(ss) > 20){
+	if(getUSDistance(ss) > 20 && !checkstat(TURNING)){
 		delstat(SLOWDOWN);
-		if(!checkstat(TURNING)){
-			distancein = 0;
-		}
+		distancein = 0;
 	} else if (!checkstat(TURNING) && checkstat(FORWARD)){
 		if(getUSDistance(ss) < 20){
 			if(!distancein){
